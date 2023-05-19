@@ -1,0 +1,216 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>此宇宙已注销</title>
+    <style>
+        /* base */
+        html, body {
+            margin: 0;
+            background: rgba(0, 0, 0, .8);
+        }
+        .preview-app {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <style>
+        /* mobile preview */
+        .mobile-preview {
+            position: relative;
+            width: 960px;
+            height: 768px;
+            min-height: 396px;
+            max-height: calc(100vh - 64px);
+            margin: 0 auto;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        .mobile-preview-wrapper {
+            width: 391px;
+            height: 100%;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 96px;
+            z-index: 2;
+        }
+        .mobile-preview-header {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 40px;
+            width: 387px;
+            background: #eeeff2;
+            text-align: center;
+            line-height: 40px;
+            border-top-right-radius: 50px;
+            border-top-left-radius: 50px;
+        }
+        .mobile-preview-header-icon {
+            display: inline-block;
+            width: 45px;
+            height: 10px;
+            background: #c8c9cc;
+            border-radius: 9px;
+            vertical-align: middle;
+        }
+        .mobile-preview-body {
+            position: relative;
+            width: 375px;
+            min-height: 294px;
+            height: 667px;
+            max-height: calc(100vh - 166px);
+            top: 40px;
+            left: 0px;
+            border: 6px solid #eeeff2;
+            background-color: #fff;
+        }
+        .mobile-preview-body-iframe {
+            border: none;
+            width: 375px;
+            height: 100%;
+        }
+        .mobile-preview-footer {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 52px;
+            width: 387px;
+            background: #eeeff2;
+            text-align: center;
+            line-height: 45px;
+            border-bottom-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+        }
+        .mobile-preview-footer-icon {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #c8c9cc;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+         .f-loading-mask {
+            background: #1f1f1f;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+        .f-iframe-loading {
+            background: url(//mo.faisys.com/image/v2/Mobile-model/loading.gif?v=201711250607) no-repeat 0 0;
+            height: 60px;
+            left: 50%;
+            margin-left: -30px;
+            margin-top: -30px;
+            position: absolute;
+            top: 50%;
+            width: 60px;
+        }
+    </style>
+    <style>
+        /* qrcode */
+        .mobile-preview-qrcode {
+            width: 250px;
+            height: 297px;
+            margin-top: -148.5px;
+            position: relative;
+            top: 50%;
+            display: inline-block;
+            vertical-align: top;
+            z-index: 1;
+        }
+        .qrcode-view-arrow {
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            position: absolute;
+            position: absolute;
+            top: 90px;
+            left: -8px;
+            transform: rotate(45deg);
+        }
+        .qrcode-wrapper {
+            width: 225px;
+            height: 267px;
+            padding-top: 30px;
+            padding-left: 25px;
+            background: #fff;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: -6px 7px 13px rgb(0 0 0 / 30%);
+        }
+        .qrcode-img {
+            margin-right: 25px;
+        }
+        .qrcode-url {
+            font-size: 14px;
+            color: #666 !important;
+            text-align: center;
+            margin-top: 15px;
+            width: 200px;
+            height: 22px;
+            line-height: 22px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+    <style>
+        /* animation */
+        @keyframes slideInLeft {
+            0% {
+                -webkit-transform: translate(-160%,0);
+                transform: translate(-160%,0);
+            }
+
+            100% {
+                -webkit-transform: translate(0,0);
+                transform: translate(0,0)
+            }
+        }
+
+        .right-in {
+            animation: slideInLeft .3s  .3s ease-out both;
+        }
+    </style>
+</head>
+<body>
+    <div id="previewApp" class="preview-app">
+        <div id="mobilePreview" class="mobile-preview">
+            <div class="mobile-preview-wrapper">
+                <div class="mobile-preview-header"><i class="mobile-preview-header-icon"></i></div>
+                <div class="mobile-preview-body">
+                    <iframe id="mobilePreviewIframe" src="http://yuz20120316.m.qty592.com/" frameborder="0" class="mobile-preview-body-iframe"></iframe>
+                    <div class="f-loading-mask" id="J_loading_mask"><div class="f-iframe-loading J_iframeLoading"></div></div>
+                </div>
+                <div class="mobile-preview-footer"><i class="mobile-preview-footer-icon"></i></div>
+            </div>
+            <div class="mobile-preview-qrcode right-in">
+                <div class="qrcode-wrapper">
+                    <img class="qrcode-img" width="200px" height="200px" src="http://yuz20120316.m.qty592.com//qrCode.jsp?cmd=printPreviewCode&#x26;siteUrl=http://yuz20120316.m.qty592.com/" />
+                    <div class="qrcode-url">http://yuz20120316.m.qty592.com/</div>
+                </div>
+                <div class="qrcode-view-arrow"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var iframeEl = document.getElementById("mobilePreviewIframe");
+        iframeEl.addEventListener("load", function() {
+            document.getElementById("J_loading_mask").style.display = 'none';
+        });
+    </script>
+</body>
+</html>
